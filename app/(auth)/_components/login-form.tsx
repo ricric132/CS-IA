@@ -11,16 +11,16 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Separator } from '@/components/ui/separator'
+import { login } from '@/lib/actions'
+import { LoginSchema } from '@/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { signIn } from 'next-auth/react'
 import React, { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-import { Separator } from '@/components/ui/separator'
-import { signIn } from 'next-auth/react'
-import { CardWrapper } from './card-wrapper'
 
-import { LoginSchema } from '@/schemas'
-import { Login } from '@/lib/actions'
+import { CardWrapper } from './card-wrapper'
 import { FormError } from './form-error'
 import { FormSuccess } from './form-success'
 
@@ -42,9 +42,9 @@ export function LoginForm() {
     setError('')
     setSuccess('')
     startTransition(() => {
-      Login(values).then((data) => {
-        setError(data.error)
-        setSuccess(data.success)
+      login(values).then((data) => {
+        setError(data?.error)
+        // setSuccess(data.success)
       })
     })
   }

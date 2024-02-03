@@ -1,16 +1,14 @@
 'use server'
 
-import bcrypt from 'bcryptjs'
-import * as z from 'zod'
-import { AuthError } from 'next-auth'
-
-import { db } from '@/lib/db'
-
 import { signIn } from '@/auth'
-import { LoginSchema, RegisterSchema } from '@/schemas'
+import { db } from '@/lib/db'
 import { DEFAULT_LOGIN_REDIRECT } from '@/routes'
+import { LoginSchema, RegisterSchema } from '@/schemas'
+import bcrypt from 'bcryptjs'
+import { AuthError } from 'next-auth'
+import * as z from 'zod'
 
-export async function Login(values: z.infer<typeof LoginSchema>) {
+export async function login(values: z.infer<typeof LoginSchema>) {
   const validatedFields = LoginSchema.safeParse(values)
 
   if (!validatedFields.success) {
@@ -39,7 +37,7 @@ export async function Login(values: z.infer<typeof LoginSchema>) {
   }
 }
 
-export async function Register(values: z.infer<typeof RegisterSchema>) {
+export async function register(values: z.infer<typeof RegisterSchema>) {
   const validatedFields = RegisterSchema.safeParse(values)
 
   if (!validatedFields.success) {
@@ -66,5 +64,5 @@ export async function Register(values: z.infer<typeof RegisterSchema>) {
     },
   })
 
-  return { success: 'User created!' }
+  return { success: 'User created successfully!' }
 }

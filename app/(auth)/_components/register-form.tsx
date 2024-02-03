@@ -11,16 +11,17 @@ import {
   FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
+import { Separator } from '@/components/ui/separator'
+import { register } from '@/lib/actions'
+import { RegisterSchema } from '@/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { signIn } from 'next-auth/react'
 import React, { useState } from 'react'
+import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
-import { Separator } from '@/components/ui/separator'
-import { signIn } from 'next-auth/react'
+
 import { CardWrapper } from './card-wrapper'
-import { RegisterSchema } from '@/schemas'
-import { Register } from '@/lib/actions'
-import { useTransition } from 'react'
 import { FormError } from './form-error'
 import { FormSuccess } from './form-success'
 
@@ -42,7 +43,7 @@ export function RegisterForm() {
     setError('')
     setSuccess('')
     startTransition(() => {
-      Register(values).then((data) => {
+      register(values).then((data) => {
         setError(data.error)
         setSuccess(data.success)
       })

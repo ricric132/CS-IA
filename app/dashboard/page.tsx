@@ -1,5 +1,5 @@
-import React from 'react'
 import { auth, signOut } from '@/auth'
+import React from 'react'
 
 export default async function Dashboard() {
   const session = await auth()

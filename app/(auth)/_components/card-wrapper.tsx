@@ -1,10 +1,11 @@
 'use client'
 
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
+import { DEFAULT_LOGIN_REDIRECT } from '@/routes'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
-import { Separator } from '@/components/ui/separator'
 
 interface CardWrapperProps {
   children: React.ReactNode
@@ -19,6 +20,12 @@ export const CardWrapper = ({
   backButtonLabel,
   backButtonHref,
 }: CardWrapperProps) => {
+  function onClick(provider: 'google' | 'github') {
+    signIn(provider, {
+      callbackUrl: DEFAULT_LOGIN_REDIRECT,
+    })
+  }
+
   return (
     <Card className="mx-auto w-full max-w-xs border-none shadow-md md:max-w-3xl">
       <CardHeader>
@@ -32,7 +39,7 @@ export const CardWrapper = ({
             size="lg"
             className="w-full"
             variant="outline"
-            onClick={() => signIn('google')}
+            onClick={() => onClick('google')}
           >
             Google
           </Button>
@@ -40,9 +47,9 @@ export const CardWrapper = ({
             size="lg"
             className="w-full"
             variant="outline"
-            onClick={() => signIn('apple')}
+            onClick={() => onClick('github')}
           >
-            Apple
+            GitHub
           </Button>
         </div>
       </CardFooter>
