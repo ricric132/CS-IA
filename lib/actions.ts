@@ -64,5 +64,7 @@ export async function register(values: z.infer<typeof RegisterSchema>) {
     },
   })
 
-  return { success: 'User created successfully!' }
+  return {
+    success: 'User created successfully! Redirecting...',
+  }
 }

@@ -16,6 +16,7 @@ import { login } from '@/lib/actions'
 import { LoginSchema } from '@/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { signIn } from 'next-auth/react'
+import { useSearchParams } from 'next/navigation'
 import React, { useState, useTransition } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
@@ -25,6 +26,12 @@ import { FormError } from './form-error'
 import { FormSuccess } from './form-success'
 
 export function LoginForm() {
+  const searchParams = useSearchParams()
+  const urlError =
+    searchParams.get('error') === 'OAuthAccountNotLinked'
+      ? 'Email is already in use with a different provider!'
+      : ''
+
   const [error, setError] = useState<string | undefined>('')
   const [success, setSuccess] = useState<string | undefined>('')
 
@@ -44,7 +51,7 @@ export function LoginForm() {
     startTransition(() => {
       login(values).then((data) => {
         setError(data?.error)
-        // setSuccess(data.success)
+        // setSuccess(data?.success)
       })
     })
   }
@@ -54,6 +61,7 @@ export function LoginForm() {
       header="Log in"
       backButtonLabel="Don't have an account?"
       backButtonHref="/register"
+      showOAuth
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -91,7 +99,7 @@ export function LoginForm() {
               </FormItem>
             )}
           />
-          <FormError message={error} />
+          <FormError message={error || urlError} />
           <FormSuccess message={success} />
           <Button className="w-full" type="submit" disabled={isPending}>
             Login

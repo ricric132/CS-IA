@@ -16,6 +16,7 @@ import { register } from '@/lib/actions'
 import { RegisterSchema } from '@/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { signIn } from 'next-auth/react'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { useTransition } from 'react'
 import { useForm } from 'react-hook-form'
@@ -30,6 +31,8 @@ export function RegisterForm() {
   const [success, setSuccess] = useState<string | undefined>('')
 
   const [isPending, startTransition] = useTransition()
+
+  const router = useRouter()
 
   const form = useForm<z.infer<typeof RegisterSchema>>({
     resolver: zodResolver(RegisterSchema),
@@ -46,6 +49,11 @@ export function RegisterForm() {
       register(values).then((data) => {
         setError(data.error)
         setSuccess(data.success)
+        if (data.success) {
+          setTimeout(() => {
+            router.push('/login')
+          }, 3000)
+        }
       })
     })
   }
@@ -55,6 +63,7 @@ export function RegisterForm() {
       header="Register"
       backButtonLabel="Already have an account?"
       backButtonHref="/login"
+      showOAuth
     >
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">

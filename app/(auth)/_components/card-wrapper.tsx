@@ -12,6 +12,7 @@ interface CardWrapperProps {
   header: string
   backButtonLabel: string
   backButtonHref: string
+  showOAuth?: boolean
 }
 
 export const CardWrapper = ({
@@ -19,6 +20,7 @@ export const CardWrapper = ({
   header,
   backButtonLabel,
   backButtonHref,
+  showOAuth,
 }: CardWrapperProps) => {
   function onClick(provider: 'google' | 'github') {
     signIn(provider, {
@@ -31,28 +33,30 @@ export const CardWrapper = ({
       <CardHeader>
         <h1 className="text-center text-3xl font-semibold">{header}</h1>
       </CardHeader>
-      <CardContent>{children}</CardContent>
-      <Separator className="w-full" />
-      <CardFooter className="mt-4">
-        <div className="flex w-full items-center gap-x-2">
-          <Button
-            size="lg"
-            className="w-full"
-            variant="outline"
-            onClick={() => onClick('google')}
-          >
-            Google
-          </Button>
-          <Button
-            size="lg"
-            className="w-full"
-            variant="outline"
-            onClick={() => onClick('github')}
-          >
-            GitHub
-          </Button>
-        </div>
-      </CardFooter>
+      <CardContent className="px-6 py-0">{children}</CardContent>
+      <Separator className="mx-auto my-4 w-[90%] justify-center md:w-[95%]" />
+      {showOAuth && (
+        <CardFooter>
+          <div className="flex w-full items-center gap-x-2">
+            <Button
+              size="lg"
+              className="w-full"
+              variant="outline"
+              onClick={() => onClick('google')}
+            >
+              Google
+            </Button>
+            <Button
+              size="lg"
+              className="w-full"
+              variant="outline"
+              onClick={() => onClick('github')}
+            >
+              GitHub
+            </Button>
+          </div>
+        </CardFooter>
+      )}
       <CardFooter>
         <Button variant="link" className="w-full font-normal" size="sm" asChild>
           <Link href={backButtonHref}>{backButtonLabel}</Link>
