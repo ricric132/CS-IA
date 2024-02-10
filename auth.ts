@@ -32,7 +32,7 @@ export const {
       }
 
       if (session.user && token?.role) {
-        session.user.role = token.sub as UserRole
+        session.user.role = token.role as UserRole
       }
       return session
     },

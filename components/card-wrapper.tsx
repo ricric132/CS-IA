@@ -13,15 +13,17 @@ interface CardWrapperProps {
   backButtonLabel: string
   backButtonHref: string
   showOAuth?: boolean
+  isPending?: boolean
 }
 
-export const CardWrapper = ({
+export function CardWrapper({
   children,
   header,
   backButtonLabel,
   backButtonHref,
   showOAuth,
-}: CardWrapperProps) => {
+  isPending,
+}: CardWrapperProps) {
   function onClick(provider: 'google' | 'github') {
     signIn(provider, {
       callbackUrl: DEFAULT_LOGIN_REDIRECT,
@@ -29,7 +31,7 @@ export const CardWrapper = ({
   }
 
   return (
-    <Card className="mx-auto w-full max-w-xs border-none shadow-md md:max-w-3xl">
+    <Card className="mx-auto border-none w-full max-w-xs md:max-w-md">
       <CardHeader>
         <h1 className="text-center text-3xl font-semibold">{header}</h1>
       </CardHeader>
@@ -43,6 +45,7 @@ export const CardWrapper = ({
               className="w-full"
               variant="outline"
               onClick={() => onClick('google')}
+              disabled={isPending}
             >
               Google
             </Button>
@@ -51,6 +54,7 @@ export const CardWrapper = ({
               className="w-full"
               variant="outline"
               onClick={() => onClick('github')}
+              disabled={isPending}
             >
               GitHub
             </Button>

@@ -1,9 +1,9 @@
 import { AlertTriangle } from 'lucide-react'
 import React from 'react'
 
-import { CardWrapper } from '../_components/card-wrapper'
+import { CardWrapper } from '../../../components/card-wrapper'
 
-export default function ErrorPage() {
+export default function Error() {
   return (
     <CardWrapper
       header="Error!"
