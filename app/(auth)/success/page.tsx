@@ -2,14 +2,10 @@
 
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { useRouter, useSearchParams } from 'next/navigation'
-import React from 'react'
+import React, { Suspense } from 'react'
 
 export default function Success() {
   const router = useRouter()
-
-  const searchParams = useSearchParams()
-
-  const email = searchParams.get('email')
 
   return (
     <Card className="mx-auto w-full max-w-xs border-none shadow-md md:max-w-7xl">
@@ -19,11 +15,7 @@ export default function Success() {
         </h1>
       </CardHeader>
       <CardContent className="px-6 py-0">
-        <div className="flex flex-col space-y-4 items-center justify-center text-center">
-          <p className="text-sm text-muted-foreground">
-            {email ? email : 'Your email'} was verified. You may close this
-            window
-          </p>
+        <div className="flex flex-col items-center justify-center space-y-4 text-center">
         </div>
       </CardContent>
     </Card>

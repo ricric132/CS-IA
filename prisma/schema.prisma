@@ -2,49 +2,59 @@
 datasource db {
   provider  = "postgresql"
   url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  //directUrl = env("DIRECT_URL")
 }
 
 generator client {
   provider = "prisma-client-js"
 }
 
-enum UserRole {
+enum UserRole{
   ADMIN
   USER
 }
 
+enum ProjectRole{
+  OWNER
+  ADMIN
+  MEMBER
+  PENDING
+}
+
+enum Status{
+  INCOMPLETE
+  IN_PROCESS
+  COMPLETE
+}
+
+enum TransactionAction{
+  CREATE
+  COMPLETE
+  STARTED
+  REMOVE
+}
+
 model User {
-  id                    String                 @id @default(cuid())
-  name                  String?
+  id                    String                 @id @default(cuid()) @unique
+  username              String?                @unique
   email                 String?                @unique
-  emailVerified         DateTime?
   image                 String?
   password              String?
-  role                  UserRole               @default(USER)
-  accounts              Account[]
-  isTwoFactorEnabled    Boolean                @default(false)
-  twoFactorConfirmation TwoFactorConfirmation?
+  projects              UserProject[]        
+  tasks                 Task[]        
+  taskInstances         TaskStatusInstance[]        
+  role                  UserRole?
+  //transactions          TransactionRecord[]          
 }
 
-model Account {
-  id                String  @id @default(cuid())
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String? @db.Text
-  session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
+model PendingUsers{
+  id                    String                 @id @default(cuid()) @unique
+  username              String?                @unique
+  email                 String?                @unique
+  password              String?
+  role                  UserRole?
 }
+
 
 model VerificationToken {
   id      String   @id @default(cuid())
@@ -55,29 +65,101 @@ model VerificationToken {
   @@unique([email, token])
 }
 
-model PasswordResetToken {
-  id      String   @id @default(cuid())
-  email   String
-  token   String   @unique
-  expires DateTime
-
-  @@unique([email, token])
+model UserProject{
+  id                    String                 @id @default(cuid()) @unique
+  user                  User                   @relation(fields: [userid], references: [id])
+  userid                String
+  project               Project                @relation(fields: [projectid], references: [id])
+  projectid             String   
+  role                  ProjectRole     
+  joinDate              DateTime               @default(now())            
 }
 
-model TwoFactorToken {
-  id      String   @id @default(cuid())
-  email   String
-  token   String   @unique
-  expires DateTime
-
-  @@unique([email, token])
+model Project{
+  id                    String                @id @default(cuid()) @unique
+  inviteCode            String                @unique
+  name                  String
+  description           String
+  users                 UserProject[]
+  tasks                 Task[]      
+  notes                 Note[]      
+  //transactions        TransactionRecord[]     
+  statusInstances       ProjectStatusInstance[] 
 }
 
-model TwoFactorConfirmation {
-  id String @id @default(cuid())
-
-  userId String
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([userId])
+model ProjectStatusInstance{
+  id                    String                @id @default(cuid()) @unique
+  fileName              String                
+  projectid             String
+  project               Project               @relation(fields: [projectid], references: [id], onDelete: Cascade)
+  tasks                 TaskStatusInstance[]
+  date                  DateTime
 }
+
+model Task{
+  id                    String                 @id @default(cuid()) @unique
+  project               Project                @relation(fields: [projectid], references: [id])
+  projectid             String
+  name                  String 
+  description           String
+  status                Status
+  deadline              DateTime
+  assigned              User?                  @relation(fields: [userid], references: [id])  
+  userid                String?                           
+  subtasks              Subtask[]
+  //transactions        TransactionRecord[]      
+}
+
+model TaskStatusInstance{
+  id                    String                  @id @default(cuid()) @unique
+  instance              ProjectStatusInstance   @relation(fields: [instanceid], references: [id], onDelete: Cascade)
+  instanceid            String
+  originalid            String                  
+  name                  String 
+  description           String
+  status                Status
+  deadline              DateTime
+  assigned              User?                  @relation(fields: [userid], references: [id])  
+  userid                String?                           
+  subtasks              SubtaskStatusInstance[]   
+}
+
+model Subtask{
+  id                    String                 @id @default(cuid()) @unique
+  name                  String
+  description           String
+  task                  Task                   @relation(fields: [taskid], references: [id])
+  taskid                String
+  status                Status      
+  deadline              DateTime
+}
+
+model SubtaskStatusInstance{
+  id                    String                 @id @default(cuid()) @unique
+  name                  String
+  description           String
+  task                  TaskStatusInstance     @relation(fields: [taskid], references: [id], onDelete: Cascade)
+  taskid                String
+  status                Status      
+  deadline              DateTime
+}
+
+model Note{
+  id                    String                 @id @default(cuid()) @unique
+  name                  String
+  content               String
+  project               Project                @relation(fields: [projectid], references: [id])
+  projectid             String
+}
+
+//model TransactionRecord{
+  //id                    String                 @id @default(cuid()) @unique
+  //user                  User                   @relation(fields: [userid], references: [id])
+  //userid                String
+  //project               Project                @relation(fields: [projectid], references: [id])
+  //projectid             String  
+  //task                  Task                   @relation(fields: [taskid], references: [id])
+  //taskid                String 
+  //date                  DateTime
+  //action                TransactionAction 
+//}

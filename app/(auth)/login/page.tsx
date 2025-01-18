@@ -16,31 +16,44 @@ import { login } from '@/lib/actions'
 import { LoginSchema } from '@/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { signIn } from 'next-auth/react'
-import { useSearchParams } from 'next/navigation'
-import React, { useState, useTransition } from 'react'
+import { useRouter, useSearchParams } from 'next/navigation'
+import React, { useState, useTransition, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import * as z from 'zod'
 
 import { CardWrapper } from '../../../components/card-wrapper'
 import { FormError } from '../../../components/form-error'
 import { FormSuccess } from '../../../components/form-success'
+import bgImage from '../../../images/LoginBG.jpg'
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command"
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 
 export default function Login() {
-  const searchParams = useSearchParams()
-  const urlError =
-    searchParams.get('error') === 'OAuthAccountNotLinked'
-      ? 'Email is already in use with a different provider!'
-      : ''
+
+  const [session, setSession] = useState<any>()
 
   const [error, setError] = useState<string | undefined>('')
   const [success, setSuccess] = useState<string | undefined>('')
 
   const [isPending, startTransition] = useTransition()
 
+  const { push } = useRouter();
+
   const form = useForm<z.infer<typeof LoginSchema>>({
     resolver: zodResolver(LoginSchema),
     defaultValues: {
-      email: '',
+      username: '',
       password: '',
     },
   })
@@ -58,28 +71,30 @@ export default function Login() {
 
   return (
     <CardWrapper
-      header="Log in to Scaffold"
+      header="Log in"
       backButtonLabel="Don't have an account?"
       backButtonHref="/register"
-      showOAuth
       isPending={isPending}
+      
     >
+    
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
           <FormField
             control={form.control}
-            name="email"
+            name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-black dark:text-white">
-                  Email
+                <FormLabel className="text-black dark:text-black text-2xl">
+                  Username
                 </FormLabel>
                 <FormControl>
-                  <Input
-                    placeholder="Enter your email address..."
+                  <Input 
+                    placeholder="Enter your username..."
                     {...field}
-                    type="email"
+                    type="username"
                     disabled={isPending}
+                    className='text-black'
                   />
                 </FormControl>
               </FormItem>
@@ -90,7 +105,7 @@ export default function Login() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-black dark:text-white">
+                <FormLabel className="text-black dark:text-black text-2xl">
                   Password
                 </FormLabel>
                 <FormControl>
@@ -99,12 +114,13 @@ export default function Login() {
                     {...field}
                     type="password"
                     disabled={isPending}
+                    className='text-black'
                   />
                 </FormControl>
               </FormItem>
             )}
           />
-          <FormError message={error || urlError} />
+          <FormError message={error} />
           <FormSuccess message={success} />
           <Button className="w-full" type="submit" disabled={isPending}>
             Login
@@ -112,5 +128,6 @@ export default function Login() {
         </form>
       </Form>
     </CardWrapper>
+    
   )
 }

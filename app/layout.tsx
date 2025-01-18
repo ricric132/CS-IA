@@ -5,7 +5,7 @@ import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 
-export const fontSans = FontSans({
+const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
 })

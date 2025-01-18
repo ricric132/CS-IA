@@ -10,14 +10,7 @@ export default function AuthNavbar() {
   const pathname = usePathname()
 
   return (
-    <div className="md:max-w-7xl max-w-sm mx-auto p-4 flex justify-between text-center">
-      <Image
-        src="../../vercel.svg"
-        height={75}
-        width={75}
-        alt="Logo"
-        className="dark:invert"
-      />
+    <div className="mx-auto flex max-w-sm justify-between p-4 text-right md:max-w-7xl">
       {pathname === '/login' && (
         <Link href="/register">
           <Button variant="ghost" size="sm">

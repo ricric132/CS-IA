@@ -44,7 +44,7 @@ export default function Confirm() {
   }
 
   return (
-    <Card className="mx-auto w-full max-w-xs border-none shadow-md md:max-w-7xl">
+    <Card className="mx-auto w-full max-w-xs md:max-w-7xl py-10 bg-cover" style={ {backgroundImage:`url('/images/DialogueShort.png')` }}>
       <CardHeader>
         <h1 className="text-center text-2xl font-semibold">
           Email Verification
@@ -64,7 +64,7 @@ export default function Confirm() {
                 disabled={isPending}
               >
                 {isPending ? (
-                  <div className="flex mx-auto space-x-1">
+                  <div className="mx-auto flex space-x-1">
                     <Spinner /> <span>Verify</span>
                   </div>
                 ) : (

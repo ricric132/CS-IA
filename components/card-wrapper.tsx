@@ -21,48 +21,15 @@ export function CardWrapper({
   header,
   backButtonLabel,
   backButtonHref,
-  showOAuth,
-  isPending,
 }: CardWrapperProps) {
-  function onClick(provider: 'google' | 'github') {
-    signIn(provider, {
-      callbackUrl: DEFAULT_LOGIN_REDIRECT,
-    })
-  }
-
   return (
-    <Card className="mx-auto border-none w-full max-w-xs md:max-w-md">
-      <CardHeader>
-        <h1 className="text-center text-3xl font-semibold">{header}</h1>
+    <Card className="mx-auto w-[930px] border-none  h-[850px] bg-cover grid grid-rows-6"  style={ {backgroundImage:`url('/images/LoginBox.png')` }}>
+      <CardHeader className='row-span-1'>
+        <h1 className="text-center text-5xl font-semibold">{header}</h1>
       </CardHeader>
-      <CardContent className="px-6 py-0">{children}</CardContent>
-      <Separator className="mx-auto my-4 w-[90%] justify-center md:w-[95%]" />
-      {showOAuth && (
-        <CardFooter>
-          <div className="flex w-full items-center gap-x-2">
-            <Button
-              size="lg"
-              className="w-full"
-              variant="outline"
-              onClick={() => onClick('google')}
-              disabled={isPending}
-            >
-              Google
-            </Button>
-            <Button
-              size="lg"
-              className="w-full"
-              variant="outline"
-              onClick={() => onClick('github')}
-              disabled={isPending}
-            >
-              GitHub
-            </Button>
-          </div>
-        </CardFooter>
-      )}
-      <CardFooter>
-        <Button variant="link" className="w-full font-normal" size="sm" asChild>
+      <CardContent className="px-40 py-0 row-span-4">{children}</CardContent>
+      <CardFooter className='row-span-1'>
+        <Button variant="link" className="mt-8 w-full font-normal text-2xl" size="sm" asChild>
           <Link href={backButtonHref}>{backButtonLabel}</Link>
         </Button>
       </CardFooter>

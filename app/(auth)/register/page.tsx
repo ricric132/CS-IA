@@ -24,6 +24,9 @@ import * as z from 'zod'
 import { CardWrapper } from '../../../components/card-wrapper'
 import { FormError } from '../../../components/form-error'
 import { FormSuccess } from '../../../components/form-success'
+import { UserRole } from '@prisma/client'
+
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 
 export default function Register() {
   const router = useRouter()
@@ -37,8 +40,9 @@ export default function Register() {
   const form = useForm<z.infer<typeof RegisterSchema>>({
     resolver: zodResolver(RegisterSchema),
     defaultValues: {
-      email: '',
+      username: '',
       password: '',
+      role: UserRole.USER,
     },
   })
 
@@ -47,13 +51,13 @@ export default function Register() {
     setSuccess('')
     startTransition(() => {
       register(values).then((data) => {
-        setError(data.error)
+        setError(data.error)  
         setSuccess(data.success)
         if (data.success) {
           toast({
-            title: 'Verification email sent!',
+            title: 'Account Created!',
             description:
-              'Verificaiton email successfully sent! Please check your inbox.',
+              'Account has been successfully created redirecting to login...',
           })
           setTimeout(() => {
             router.push('/login')
@@ -65,10 +69,9 @@ export default function Register() {
 
   return (
     <CardWrapper
-      header="Create your Scaffold account"
+      header="Create your account"
       backButtonLabel="Already have an account?"
       backButtonHref="/login"
-      showOAuth
       isPending={isPending}
     >
       <Form {...form}>
@@ -78,17 +81,40 @@ export default function Register() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-black dark:text-white">
+                <FormLabel className="text-black dark:text-black">
                   Email
                 </FormLabel>
                 <FormControl>
                   <Input
-                    placeholder="Enter your email address..."
+                    placeholder="Enter your email..."
                     {...field}
                     type="email"
                     disabled={isPending}
+                    className='text-black'
                   />
                 </FormControl>
+                <FormMessage/>
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="username"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-black dark:text-black">
+                  Username
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Enter your username..."
+                    {...field}
+                    type="username"
+                    disabled={isPending}
+                    className='text-black'
+                  />
+                </FormControl>
+                <FormMessage/>
               </FormItem>
             )}
           />
@@ -97,7 +123,7 @@ export default function Register() {
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-black dark:text-white">
+                <FormLabel className="text-black dark:text-black">
                   Password
                 </FormLabel>
                 <FormControl>
@@ -106,8 +132,65 @@ export default function Register() {
                     {...field}
                     type="password"
                     disabled={isPending}
+                    className='text-black'
                   />
                 </FormControl>
+                <FormMessage/>
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="confirmPassword"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel className="text-black dark:text-black">
+                  Confirm Password
+                </FormLabel>
+                <FormControl>
+                  <Input
+                    placeholder="Re-enter your password..."
+                    {...field}
+                    type="confirmPassword"
+                    disabled={isPending}
+                    className='text-black'
+                  />
+                </FormControl>
+                <FormMessage/>
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="role"
+            render={({ field }) => (
+              <FormItem className="space-y-3">
+                <FormLabel>Select your account role</FormLabel>
+                <FormControl>
+                  <RadioGroup
+                    onValueChange={field.onChange}
+                    defaultValue={field.value}
+                    className="flex flex-col space-y-1"
+                  >
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl>
+                        <RadioGroupItem value={UserRole.USER} />
+                      </FormControl>
+                      <FormLabel className="font-normal">
+                        Register as a user
+                      </FormLabel>
+                    </FormItem>
+                    <FormItem className="flex items-center space-x-3 space-y-0">
+                      <FormControl>
+                        <RadioGroupItem value={UserRole.ADMIN} />
+                      </FormControl>
+                      <FormLabel className="font-normal">
+                        Register as an admin
+                      </FormLabel>
+                    </FormItem>
+                  </RadioGroup>
+                </FormControl>
+                <FormMessage />
               </FormItem>
             )}
           />

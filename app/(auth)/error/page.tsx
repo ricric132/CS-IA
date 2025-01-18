@@ -12,7 +12,7 @@ export default function Error() {
     >
       <div className="flex items-center justify-center gap-x-2 text-center">
         <AlertTriangle className="h-4 w-4  text-destructive" />
-        <p>Oops! Something wen't wrong!</p>
+        <p>Oops! Something went wrong!</p>
       </div>
     </CardWrapper>
   )
