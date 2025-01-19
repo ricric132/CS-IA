@@ -76,7 +76,6 @@ function CreateTaskButton({projectid, users}) {
     const userid = (await getSession())?.user.id!
     startTransition(() => {
       CreateTask(values, userid, projectid).then((data) => {
-        
         setError(data.error)
         setSuccess(data.success)
         if (data.success) {
@@ -92,7 +91,6 @@ function CreateTaskButton({projectid, users}) {
             setSuccess('')
             form.reset()
             router.refresh()
-            
           }, 1000)
         }
       })
@@ -120,7 +118,7 @@ function CreateTaskButton({projectid, users}) {
                       placeholder="Enter Task name..."
                       {...field}
                       type="name"
-                      disabled={isPending}
+                      //disabled={isPending}
                     />
                   </FormControl>
                   <FormMessage/>
@@ -140,7 +138,7 @@ function CreateTaskButton({projectid, users}) {
                       placeholder="Give your task a quick description..."
                       {...field}
                       className="h-40 text-wrap"
-                      disabled={isPending}
+                      //disabled={isPending}
                     />
                   </FormControl>
                   <FormMessage/>
@@ -233,7 +231,7 @@ function CreateTaskButton({projectid, users}) {
             />
             <FormError message={error} />
             <FormSuccess message={success} />
-            <Button className="w-full" type="submit" disabled={isPending}>
+            <Button className="w-full" type="submit" /*disabled={isPending}*/>
               <span>Create task</span>
             </Button>
           </form>
