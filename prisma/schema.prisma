@@ -106,7 +106,7 @@ model Task{
   deadline              DateTime
   assigned              User?                  @relation(fields: [userid], references: [id])  
   userid                String?                           
-  subtasks              Subtask[]
+  subtasks              Subtask[]              
   //transactions        TransactionRecord[]      
 }
 
@@ -128,7 +128,7 @@ model Subtask{
   id                    String                 @id @default(cuid()) @unique
   name                  String
   description           String
-  task                  Task                   @relation(fields: [taskid], references: [id])
+  task                  Task                   @relation(fields: [taskid], references: [id], onDelete: Cascade)
   taskid                String
   status                Status      
   deadline              DateTime
