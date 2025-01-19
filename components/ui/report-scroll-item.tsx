@@ -4,7 +4,7 @@ import { Separator } from "./separator"
 import { useRouter } from "next/navigation"
 
 
-export function ReportScrollItem({report, triggerRefresh}){
+function ReportScrollItem({report, triggerRefresh}){
     const router = useRouter()
     async function OpenClick(){
         router.push("/report/" + report.id + "/pdf")
@@ -35,3 +35,4 @@ export function ReportScrollItem({report, triggerRefresh}){
         </div>
     )
 }
+export default ReportScrollItem;

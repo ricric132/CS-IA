@@ -1,20 +1,10 @@
-import { motion, useAnimate, useMotionValue, useMotionValueEvent, useTransform } from "framer-motion"
-import { useState, useEffect, useTransition } from "react"
-import { Project, User } from "@prisma/client"
-import { Card } from "./card"
+import { useState, useTransition } from "react"
 import { Button } from "./button"
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { CreateProjectJoinRequest } from "@/lib/actions"
-import { late } from "zod"
-import { Repeat } from "lucide-react"
 import { JoinProject } from "@/lib/actions"
 import { useRouter } from "next/navigation"
 

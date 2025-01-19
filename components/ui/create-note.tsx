@@ -4,10 +4,6 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import {
@@ -19,14 +15,11 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form'
-import { Textarea } from "@/components/ui/textarea"
 import { useForm } from 'react-hook-form'
 import { NoteSchema } from '@/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { FormError } from '../form-error'
-import { FormSuccess } from '../form-success'
 import React, { useState } from 'react'
 import * as z from 'zod'
 
@@ -39,7 +32,7 @@ import { CreateNote } from '@/lib/actions'
 import { useToast } from '@/components/ui/use-toast'
 import { useRouter } from 'next/navigation'
  
-export function CreateNoteButton({projectid}) {
+function CreateNoteButton({projectid}) {
   const router = useRouter()
   const { toast } = useToast()
 
@@ -108,3 +101,4 @@ export function CreateNoteButton({projectid}) {
     </Dialog>
   )
 }
+export default CreateNoteButton;

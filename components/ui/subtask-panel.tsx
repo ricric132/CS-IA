@@ -1,12 +1,10 @@
 import { sub } from "date-fns"
 import { Card } from "./card"
-import { CreateSubtaskForm } from "./create-subtask"
-import { EditSubtaskForm } from "./edit-subtask"
-import { PlaceholderSubtask } from "./placeholder-subtask"
+import CreateSubtaskForm  from "./create-subtask"
+import EditSubtaskForm  from "./edit-subtask"
+import PlaceholderSubtask  from "./placeholder-subtask"
 
-export function SubtaskPanel({isAdding, subtask, taskid}){
-
-
+function SubtaskPanel({isAdding, subtask, taskid}){
     if (isAdding == true){
         return(
             <CreateSubtaskForm taskid={taskid}/>
@@ -23,4 +21,5 @@ export function SubtaskPanel({isAdding, subtask, taskid}){
         )
     }
 }
+export default SubtaskPanel;
 

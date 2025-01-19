@@ -6,9 +6,8 @@ import { debug } from 'console'
 import { useState, useEffect } from 'react'
 import {Status} from "@prisma/client";
 import { useTransition } from 'react'
-import { CreateTaskButton } from '@/components/ui/create-task'
 import { useRouter } from 'next/navigation'
-import { BackButton } from '@/components/ui/back-button'
+import BackButton from '@/components/ui/back-button'
 import { Progress } from '@/components/ui/progress'
 import { Card } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
@@ -36,7 +35,7 @@ type Progress = {
     complete:   number;
 }
 
-export function UserProject({projectid, userid, role}){
+function UserProject({projectid, userid, role}){
     const [project, setProjects] = useState<Project | null>()
 
     const [completed, setCompleted] = useState<Task[]>()
@@ -125,3 +124,4 @@ export function UserProject({projectid, userid, role}){
         </div>
     )
 }
+export default UserProject;

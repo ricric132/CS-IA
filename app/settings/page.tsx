@@ -1,7 +1,7 @@
 import { auth } from "@/auth"
-import { BackButton } from "@/components/ui/back-button"
+import BackButton from "@/components/ui/back-button"
 import { Separator } from "@/components/ui/separator"
-import { UserSettings } from "@/components/ui/user-settings"
+import UserSettings from "@/components/ui/user-settings"
 
 
 export default async function Settings(){

@@ -35,7 +35,7 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 
-export function EditPassword({userID}) {
+function EditPassword({userID}) {
     const [open, setOpen] = useState(false);
     const [session, setSession] = useState<any>()
     const searchParams = useSearchParams()
@@ -137,3 +137,4 @@ export function EditPassword({userID}) {
         </Dialog>
     )
 }
+export default EditPassword;

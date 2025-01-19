@@ -7,7 +7,7 @@ export enum ChevronStates{
     Down
 }
 
-export function DynamicChevrons({state}) {
+function DynamicChevrons({state}) {
     if(state == ChevronStates.Up){
         return(
             <ChevronUp/>
@@ -24,3 +24,4 @@ export function DynamicChevrons({state}) {
         <ChevronsUpDown/>
     )
 }
+export default DynamicChevrons;

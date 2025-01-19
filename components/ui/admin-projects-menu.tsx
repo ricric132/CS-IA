@@ -8,7 +8,7 @@ import { useState, useEffect } from 'react'
 import { useTransition } from 'react'
 import { ScrollArea } from './scroll-area'
 import { JoinProjectButton } from './join-project-code'
-import { CreateProjectButton } from './create-project'
+import CreateProjectButton from './create-project'
 import { GetNotjoinedProjects } from '@/lib/actions'
 import { AdminProjectPreview } from './admin-project-preview'
 

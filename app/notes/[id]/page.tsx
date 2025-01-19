@@ -7,8 +7,8 @@ import { GetAllNotesInProject } from "@/lib/actions";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { CreateNoteButton } from "@/components/ui/create-note";
-import { BackButton } from "@/components/ui/back-button";
+import CreateNoteButton from "@/components/ui/create-note";
+import BackButton from "@/components/ui/back-button";
 import { DeleteNote } from "@/lib/actions";
 import { Card } from "@/components/ui/card";
 

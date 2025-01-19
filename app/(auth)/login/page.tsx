@@ -4,11 +4,9 @@ import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
-  FormMessage,
 } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Separator } from '@/components/ui/separator'
@@ -25,19 +23,6 @@ import { CardWrapper } from '../../../components/card-wrapper'
 import { FormError } from '../../../components/form-error'
 import { FormSuccess } from '../../../components/form-success'
 import bgImage from '../../../images/LoginBG.jpg'
-import {
-  Command,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-} from "@/components/ui/command"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
 
 export default function Login() {
 

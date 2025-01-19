@@ -2,7 +2,7 @@
 import { Button } from "./button"
 import { useRouter } from "next/navigation"
 
-export function SettingsButton(){
+function SettingsButton(){
     const router = useRouter()
 
     function GoToSettings(){
@@ -13,3 +13,4 @@ export function SettingsButton(){
         <Button onClick={() => GoToSettings()}>Settings</Button>
     )
 }
+export default SettingsButton;

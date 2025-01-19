@@ -4,44 +4,32 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
   FormMessage,
 } from '@/components/ui/form'
-import { Textarea } from "@/components/ui/textarea"
+import Textarea from "@/components/ui/textarea"
 import { useForm } from 'react-hook-form'
 import { ProjectSchema } from '@/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import { FormError } from '../form-error'
 import { FormSuccess } from '../form-success'
 import React, { useState } from 'react'
 import * as z from 'zod'
 
- 
-import { ScrollArea } from "@/components/ui/scroll-area"
-import { Separator } from "@/components/ui/separator"
-import { debug } from "console"
 import { useTransition } from 'react'
 import { CreateProject } from '@/lib/actions'
 import { useToast } from '@/components/ui/use-toast'
 import { useRouter } from 'next/navigation'
- 
-const lessons = ["maths", "physics", "chemistry", "biology"]
 
-export function CreateProjectButton({userid, triggerRefresh}) {
+function CreateProjectButton({userid, triggerRefresh}) {
   const router = useRouter()
   const { toast } = useToast()
 
@@ -141,3 +129,4 @@ export function CreateProjectButton({userid, triggerRefresh}) {
     </Dialog>
   )
 }
+export default CreateProjectButton;

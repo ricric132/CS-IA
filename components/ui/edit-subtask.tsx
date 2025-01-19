@@ -2,15 +2,6 @@
 
 import { Button } from "@/components/ui/button"
 import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
-import {
   Form,
   FormControl,
   FormDescription,
@@ -19,7 +10,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form'
-import { Textarea } from "@/components/ui/textarea"
+import Textarea from "@/components/ui/textarea"
 import { useForm } from 'react-hook-form'
 import { TaskSchema } from '@/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -34,18 +25,11 @@ import { EditSubtask } from '@/lib/actions'
 import { useToast } from '@/components/ui/use-toast'
 import { useParams, useRouter } from 'next/navigation'
 import { getSession } from "next-auth/react"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
 import { Calendar } from "@/components/ui/calendar"
 import { cn } from "@/lib/utils"
-import { format, sub } from "date-fns"
-import { CalendarIcon } from "lucide-react"
 import { Card } from "./card"
 
-export function EditSubtaskForm({taskid, subtask}) {
+function EditSubtaskForm({taskid, subtask}) {
   const router = useRouter()
   const { toast } = useToast()
 
@@ -183,4 +167,4 @@ export function EditSubtaskForm({taskid, subtask}) {
     </Card>
   )
 }
-
+export default EditSubtaskForm;

@@ -2,23 +2,16 @@
 
 import { useState, useEffect, useTransition } from "react"
 import { Project, ProjectRole, User } from "@prisma/client"
-import { Card } from "./card"
 import { Button } from "./button"
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { CreateProjectJoinRequest, GetProjectOwner } from "@/lib/actions"
-import { late } from "zod"
-import { Repeat } from "lucide-react"
 
 
-export function FloatingProject({userid, project, Pause, Unpause, triggerRefresh}) {
+function FloatingProject({userid, project, Pause, Unpause, triggerRefresh}) {
     const [nextProject, setNextProject] = useState<Project>()
 
     const [isChanged, setChanged] = useState(false)
@@ -75,3 +68,4 @@ export function FloatingProject({userid, project, Pause, Unpause, triggerRefresh
         </Dialog>
     )
 }
+export default FloatingProject;

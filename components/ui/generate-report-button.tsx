@@ -1,18 +1,8 @@
 import { Button } from "./button"
 import { GenerateReport } from "@/lib/actions"
-import { useRef } from "react";
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog"
 import { useState } from "react";
 
-export function GenerateReportButton({projectid, triggerRefresh}){
+function GenerateReportButton({projectid, triggerRefresh}){
     const [open, setOpen] = useState(false)
 
     async function HandleOnClick(){
@@ -28,3 +18,4 @@ export function GenerateReportButton({projectid, triggerRefresh}){
         </div>
     )
 }
+export default GenerateReportButton;

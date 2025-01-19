@@ -1,11 +1,11 @@
 'use client'
-import { BackButton } from "@/components/ui/back-button"
+import BackButton from "@/components/ui/back-button"
 import { useState, useTransition, useEffect } from "react"
 import { Project, ProjectStatusInstance  } from "@prisma/client"
 import { GetProjectFromID, GetProjectMembers, GetPendingProjectMembers, GetReportsByProject } from "@/lib/actions"
 import { Separator } from "@/components/ui/separator"
 import { UserProject } from "@prisma/client"
-import { MemberListItem } from "@/components/ui/member-list-item"
+import MemberListItem from "@/components/ui/member-list-item"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Button } from "@/components/ui/button"
 import { DeleteProject } from "@/lib/actions"
@@ -14,9 +14,9 @@ import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 import ReactPDF from '@react-pdf/renderer';
 import ReactDOM from 'react-dom';
 import { PDFViewer } from '@react-pdf/renderer';
-import { GenerateReportButton } from "@/components/ui/generate-report-button"
+import GenerateReportButton from "@/components/ui/generate-report-button"
 import { Card } from "@/components/ui/card"
-import { ReportScrollItem } from "@/components/ui/report-scroll-item"
+import ReportScrollItem from "@/components/ui/report-scroll-item"
 
 // Create styles
 const styles = StyleSheet.create({

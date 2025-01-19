@@ -3,12 +3,11 @@
 import { useEffect, useTransition, useState } from "react"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { GetFullTasksFromProject, GetProjectFromID, GetUsersFromProject } from '@/lib/actions'
-import { CreateTaskButton } from '@/components/ui/create-task'
-import { TaskWindow } from '@/components/ui/task-info-window'
-import { BackButton } from '@/components/ui/back-button'
-import { TaskScrollHeader } from '@/components/ui/task-scroll-header'
+import CreateTaskButton from '@/components/ui/create-task'
+import TaskWindow from '@/components/ui/task-info-window'
+import BackButton from '@/components/ui/back-button'
+import TaskScrollHeader from '@/components/ui/task-scroll-header'
 import { Card } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
 import { Task, Project } from "@prisma/client"
 import { User } from "@prisma/client"
 import { SearchBar } from "@/components/ui/search-bar"
@@ -130,7 +129,7 @@ export default function TaskDashboard(params:{
                 </div>
                 <h1 className="text-8xl font-bold col-span-8 mt-2 mb-2">Tasks Dashboard</h1>
             </div>
-            <div className="grid grid-cols-12 gap-3">
+            <div className="grid grid-cols-12 gap-3"> 
                 <Card className="col-span-4 bg-yellow-50">
                     <CreateTaskButton projectid={id} users={users}/>
                     <SearchBar defaultValue={""} returnValue={setSearchInput}/>

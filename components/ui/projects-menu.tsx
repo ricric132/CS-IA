@@ -8,17 +8,16 @@ import { useState, useEffect } from 'react'
 import { useTransition } from 'react'
 import { ScrollArea } from './scroll-area'
 import { JoinProjectButton } from './join-project-code'
-import { Session } from 'inspector'
 import { Card } from './card'
 import { useMotionValueEvent, useTime} from "framer-motion";
 import { useRef } from 'react'
 import { Project } from '@prisma/client'
 import * as RadixScrollArea from "@radix-ui/react-scroll-area";
 import { Separator } from "./separator";
-import { FloatingProject } from '@/components/ui/floating-project'
+import FloatingProject from '@/components/ui/floating-project'
 
 
-export function ProjectMenu({userid}){
+function ProjectMenu({userid}){
     const [projects, setProjects] = useState<{ name: string; id: string; }[]>([]);
     const [pendingProjects, setPendingProjects] = useState<{ name: string; id: string; }[]>([]);
     const [isPending, startTransition] = useTransition()
@@ -168,3 +167,4 @@ export function ProjectMenu({userid}){
       </div>
     )
 }
+export default ProjectMenu;

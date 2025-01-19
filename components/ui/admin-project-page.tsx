@@ -6,13 +6,11 @@ import { debug } from 'console'
 import { useState, useEffect } from 'react'
 import {Status} from "@prisma/client";
 import { useTransition } from 'react'
-import { CreateTaskButton } from '@/components/ui/create-task'
 import { useRouter } from 'next/navigation'
-import { BackButton } from '@/components/ui/back-button'
+import BackButton from '@/components/ui/back-button'
 import { Progress } from '@/components/ui/progress'
 import { Card } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
-import ManageMembers from '@/app/manage-members/[id]/page'
 
 export type Task = {
     id: string;

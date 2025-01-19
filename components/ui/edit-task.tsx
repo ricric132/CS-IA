@@ -19,7 +19,7 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form'
-import { Textarea } from "@/components/ui/textarea"
+import Textarea from "@/components/ui/textarea"
 import { useForm } from 'react-hook-form'
 import { ProjectSchema, TaskSchema } from '@/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -43,7 +43,7 @@ import { Description } from "@radix-ui/react-toast"
 import { Calendar } from "./calendar"
 
 
-export function EditTaskButton({task}) {
+function EditTaskButton({task}) {
   const router = useRouter()
   const { toast } = useToast()
 
@@ -163,3 +163,4 @@ export function EditTaskButton({task}) {
     </Dialog>
   )
 }
+export default EditTaskButton;

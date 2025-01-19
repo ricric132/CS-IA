@@ -3,11 +3,11 @@ import { useEffect, useTransition } from "react";
 import { GetUserByID } from "@/lib/actions";
 import { useState } from "react";
 import { User } from "@prisma/client";
-import {EditUsername} from "./edit-username"
-import { EditPassword } from "./edit-password";
+import EditUsername from "./edit-username"
+import EditPassword from "./edit-password";
 
 
-export function UserSettings({userID}){
+function UserSettings({userID}){
     const [isPending, startTransition] = useTransition()
     const [user, setUser] = useState<User | null>()
 
@@ -26,3 +26,4 @@ export function UserSettings({userID}){
     )
     
 }
+export default UserSettings;

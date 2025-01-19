@@ -1,4 +1,4 @@
-
+`user client`
 import { useRouter } from "next/navigation";
 import { useState, ChangeEvent } from "react";
 
@@ -24,22 +24,12 @@ export function SearchBar({ defaultValue, returnValue}) {
     return (
 
         <div className="bg-white search__input border-[2px] border-solid border-slate-500 flex flex-row items-center gap-5 p-1 rounded-[15px]">
-
-            
-
             <input type="text"
-
                 id="inputId"
-
                 placeholder="Search for tasks"
-
                 value={inputValue ?? ""} onChange={handleChange}
-
                 className="bg-[transparent] outline-none border-none w-full py-3 pl-2 pr-3" />
-
-
         </div>
-
     )
-
 }
+export default SearchBar;

@@ -5,11 +5,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { verifyToken } from '@/lib/actions'
 import { useRouter, useSearchParams } from 'next/navigation'
-import React, { useCallback, useEffect, useState, useTransition } from 'react'
-
-import { CardWrapper } from '../../../components/card-wrapper'
-import { FormError } from '../../../components/form-error'
-import { FormSuccess } from '../../../components/form-success'
+import React, { useCallback, useEffect, useState, useTransition, Suspense } from 'react'
 
 export default function Confirm() {
   const [isPending, startTransition] = useTransition()
@@ -44,37 +40,38 @@ export default function Confirm() {
   }
 
   return (
-    <Card className="mx-auto w-full max-w-xs md:max-w-7xl py-10 bg-cover" style={ {backgroundImage:`url('/images/DialogueShort.png')` }}>
-      <CardHeader>
-        <h1 className="text-center text-2xl font-semibold">
-          Email Verification
-        </h1>
-      </CardHeader>
-      <CardContent className="px-6 py-0">
-        <div className="flex items-center justify-center text-center">
-          <div className="flex flex-col space-y-4">
-            <p className="text-sm text-muted-foreground">
-              To complete the verification process, please click the button
-              below:
-            </p>
-            <div className="mx-auto w-1/2">
-              <Button
-                onClick={() => onSubmit()}
-                className="w-full"
-                disabled={isPending}
-              >
-                {isPending ? (
-                  <div className="mx-auto flex space-x-1">
-                    <Spinner /> <span>Verify</span>
-                  </div>
-                ) : (
-                  'Verify'
-                )}
-              </Button>
+    
+      <Card className="mx-auto w-full max-w-xs md:max-w-7xl py-10 bg-cover" style={ {backgroundImage:`url('/images/DialogueShort.png')` }}>
+        <CardHeader>
+          <h1 className="text-center text-2xl font-semibold">
+            Email Verification
+          </h1>
+        </CardHeader>
+        <CardContent className="px-6 py-0">
+          <div className="flex items-center justify-center text-center">
+            <div className="flex flex-col space-y-4">
+              <p className="text-sm text-muted-foreground">
+                To complete the verification process, please click the button
+                below:
+              </p>
+              <div className="mx-auto w-1/2">
+                <Button
+                  onClick={() => onSubmit()}
+                  className="w-full"
+                  disabled={isPending}
+                >
+                  {isPending ? (
+                    <div className="mx-auto flex space-x-1">
+                      <Spinner /> <span>Verify</span>
+                    </div>
+                  ) : (
+                    'Verify'
+                  )}
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
-      </CardContent>
-    </Card>
+        </CardContent> 
+      </Card>
   )
 }

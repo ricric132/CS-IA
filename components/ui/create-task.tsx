@@ -4,10 +4,6 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import {
@@ -19,14 +15,14 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form'
-import { Textarea } from "@/components/ui/textarea"
+import Textarea from "@/components/ui/textarea"
 import { useForm } from 'react-hook-form'
 import { TaskSchema } from '@/schemas'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Input } from "@/components/ui/input"
 import { FormError } from '../form-error'
 import { FormSuccess } from '../form-success'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import * as z from 'zod'
 
 import { useTransition } from 'react'
@@ -50,9 +46,8 @@ import {
 } from "@/components/ui/command"
 import { cn } from "@/lib/utils"
 import { Check, ChevronsUpDown } from "lucide-react"
-import { User } from "@prisma/client"
 
-export function CreateTaskButton({projectid, users}) {
+function CreateTaskButton({projectid, users}) {
   const router = useRouter()
   const { toast } = useToast()
 
@@ -247,3 +242,4 @@ export function CreateTaskButton({projectid, users}) {
     </Dialog>
   )
 }
+export default CreateTaskButton;

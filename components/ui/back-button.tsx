@@ -3,8 +3,7 @@ import { Button } from "@/components/ui/button"
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-
-export function BackButton(){
+function BackButton(){
     const router = useRouter()
     const [clicked, setClicked] = useState(false)
 
@@ -14,3 +13,4 @@ export function BackButton(){
         </a>
     )
 }
+export default BackButton;

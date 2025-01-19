@@ -2,11 +2,11 @@
 import { Separator } from "@/components/ui/separator"
 import { Button } from "./button"
 import { link } from "fs"
-import { DynamicChevrons } from "./dynamic-chevrons"
+import DynamicChevrons from "./dynamic-chevrons"
 import { useState } from "react"
 import { ChevronStates } from "./dynamic-chevrons"
 
-export function TaskScrollHeader({NameSort, DeadlineSort}){
+function TaskScrollHeader({NameSort, DeadlineSort}){
     const [nameChevronState, setNameChevronState] = useState<ChevronStates>(ChevronStates.Neutral)
     const [deadlineChevronState, setDeadlineChevronState] = useState<ChevronStates>(ChevronStates.Neutral)
 
@@ -54,4 +54,4 @@ export function TaskScrollHeader({NameSort, DeadlineSort}){
         </div>
     )
 }
-
+export default TaskScrollHeader;

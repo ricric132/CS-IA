@@ -1,12 +1,10 @@
 'use client'
-import { Checkbox } from "./checkbox"
 import { Button } from "./button"
-import { useState, useEffect, useTransition, startTransition } from "react"
-import { UpdateSubtaskStatus } from "@/lib/actions"
-import { ProjectRole, Status, User } from "@prisma/client"
+import { useState, useEffect, useTransition} from "react"
+import { ProjectRole, User } from "@prisma/client"
 import { GetUserById , RemoveProjectMembers, AcceptJoinRequest} from "@/lib/actions"
 
-export function MemberListItem({member, triggerRefresh}){
+function MemberListItem({member, triggerRefresh}){
     const [user, setUser] = useState<User | null>()
     const [isPending, startTransition] = useTransition()
 
@@ -72,3 +70,4 @@ function ManageButtons({member, triggerRefresh}){
         )
     }
 }
+export default MemberListItem;

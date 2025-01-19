@@ -3,10 +3,10 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 import { Project } from "@prisma/client";
-import { FloatingProject } from '@/components/ui/floating-project'
+import FloatingProject from '@/components/ui/floating-project'
 import { GetNotjoinedProjects } from "@/lib/actions";
 import { Card } from "./card";
-import { animationControls, useAnimationControls, useMotionValue, useMotionValueEvent, useTime, useTransform } from "framer-motion";
+import { useMotionValueEvent, useTime } from "framer-motion";
 import * as ScrollArea from "@radix-ui/react-scroll-area";
 import { useRef } from "react";
 import { relative } from "path";
@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 import { Separator } from "./separator";
 
 
-export function ProjectScroll({userid}){
+function ProjectScroll({userid}){
     const router = useRouter()
     
     const [isPending, startTransition] = useTransition()
@@ -110,3 +110,4 @@ export function ProjectScroll({userid}){
         </Card>
     )
 }
+export default ProjectScroll;

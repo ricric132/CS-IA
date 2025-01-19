@@ -1,13 +1,8 @@
 import React from 'react'
-import { Separator } from '@/components/ui/separator'
-import { Button } from "@/components/ui/button"
-import { CreateProjectButton } from '@/components/ui/create-project'
 import {auth} from '@/auth'
-import { ProjectMenu } from '@/components/ui/projects-menu'
+import ProjectMenu from '@/components/ui/projects-menu'
 import { AdminProjectMenu } from '@/components/ui/admin-projects-menu'
-import { SettingsButton } from '@/components/ui/settings-button'
-import { JoinProjectButton } from '@/components/ui/join-project-code'
-import { ProjectScroll } from '@/components/ui/projects-scroll'
+import SettingsButton from '@/components/ui/settings-button'
 import { UserRole } from '@prisma/client'
 import { GetUserByID } from '@/lib/actions'
 

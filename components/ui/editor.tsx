@@ -12,7 +12,7 @@ import { SaveNote } from "@/lib/actions";
 import { genUploader } from "uploadthing/client";
 import { generateReactHelpers } from "@uploadthing/react";
 
-export const { uploadFiles } =
+const { uploadFiles } =
   generateReactHelpers<OurFileRouter>();
 
 export async function uploadFile(file: File) {

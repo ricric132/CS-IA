@@ -2,7 +2,7 @@ import { GetUserProject } from "@/lib/actions";
 import { Status } from "@prisma/client";
 import { auth } from '@/auth'
 import { AdminProject } from "@/components/ui/admin-project-page";
-import { UserProject} from "@/components/ui/user-project-page";
+import UserProject from "@/components/ui/user-project-page";
 
 
 

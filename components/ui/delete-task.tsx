@@ -38,7 +38,7 @@ import { Task } from "@/app/project/[id]/page"
  
 
 
-export function DeleteTaskButton({task, closeParent}) {
+function DeleteTaskButton({task, closeParent}) {
   const router = useRouter()
   const { toast } = useToast()
   
@@ -71,3 +71,4 @@ export function DeleteTaskButton({task, closeParent}) {
     </Dialog>
   )
 }
+export default DeleteTaskButton;

@@ -4,57 +4,28 @@ import { Button } from "@/components/ui/button"
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form'
-import { Textarea } from "@/components/ui/textarea"
-import { useForm } from 'react-hook-form'
-import { ProjectSchema } from '@/schemas'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { FormError } from '../form-error'
-import { FormSuccess } from '../form-success'
 import { useState, useEffect } from 'react'
-import * as z from 'zod'
 
  
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
-import { debug } from "console"
 import { useTransition } from 'react'
 import { useToast } from '@/components/ui/use-toast'
 import { useRouter } from 'next/navigation'
-import { getSession } from "next-auth/react"
-import { Task } from "@/app/project/[id]/page";
-import { EditTaskButton } from '@/components/ui/edit-task'
-import { DeleteTaskButton } from '@/components/ui/delete-task'
+import EditTaskButton from '@/components/ui/edit-task'
+import DeleteTaskButton from '@/components/ui/delete-task'
 import { Checkbox } from "@/components/ui/checkbox"
 import { UpdateTaskStatus, GetSubtasks } from "@/lib/actions"
 import { Status, Subtask } from "@prisma/client"
-import { CreateSubtaskForm } from "./create-subtask"
 import { Card } from "./card"
-import { SubtaskListItem } from "./subtask-list-item"
-import { TaskScrollHeader } from "./task-scroll-header"
-import { sub } from "date-fns"
-import { SubtaskPanel } from "./subtask-panel"
-import { useSelectRange } from "react-day-picker"
+import SubtaskListItem from "./subtask-list-item"
+import TaskScrollHeader from "./task-scroll-header"
+import SubtaskPanel from "./subtask-panel"
 import { User } from "@prisma/client"
-import { GetUserByID } from "@/lib/actions"
 
-export function TaskWindow({task}) {
+function TaskWindow({task}) {
   const [open, setOpen] = useState(false);
   const router = useRouter()
   const { toast } = useToast()
@@ -236,3 +207,4 @@ export function TaskWindow({task}) {
     </div>
   )
 }
+export default TaskWindow;
