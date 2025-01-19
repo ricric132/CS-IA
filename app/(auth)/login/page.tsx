@@ -22,7 +22,7 @@ import * as z from 'zod'
 import { CardWrapper } from '../../../components/card-wrapper'
 import { FormError } from '../../../components/form-error'
 import { FormSuccess } from '../../../components/form-success'
-import bgImage from '../../../images/LoginBG.jpg'
+import bgImage from '../../../Images/LoginBG.jpg'
 
 export default function Login() {
 
