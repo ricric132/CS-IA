@@ -56,7 +56,7 @@ export default function Notes(params:{
 
   return (
     <div className="bg-yellow-50">
-      <div className='grid grid-cols-10 mb-5 bg-yellow-50 bg-cover' style={ {backgroundImage:`url('/images/Title.png')`}}>
+      <div className='grid grid-cols-10 mb-5 bg-yellow-50 bg-cover' style={ {backgroundImage:`url('/Images/Title.png')`}}>
           <div className='col-span-1 ml-5'>
               <BackButton />
           </div>
@@ -68,7 +68,7 @@ export default function Notes(params:{
           <Button variant={'destructive'} onClick={() => DeleteCurNote()}> delete note</Button>
           <ScrollArea className="h-[700px] w-[100%] rounded-md border">
             {notes?.map((note) => (
-              <div key={note.id} className="bg-cover mb-3" style={ {backgroundImage:`url('/images/ThinPanel.png')`}}>
+              <div key={note.id} className="bg-cover mb-3" style={ {backgroundImage:`url('/Images/ThinPanel.png')`}}>
               { note?.id != activeNote?.id ? (<Button onClick={() => setActiveNote(note)} variant={'link'} >{note.name}</Button>)
                 : (<Button onClick={() => setActiveNote(note)} className="underline" variant={'link'} >{note.name}</Button>)
               } 

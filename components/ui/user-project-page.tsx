@@ -90,7 +90,7 @@ function UserProject({projectid, userid, role}){
 
     return (
         <div className='bg-amber-50'>
-            <div className='grid grid-cols-10 bg-cover' style={ {backgroundImage:`url('/images/Title.png')`}}>
+            <div className='grid grid-cols-10 bg-cover' style={ {backgroundImage:`url('/Images/Title.png')`}}>
                 <div className='col-span-1 ml-5'>
                     <BackButton />
                 </div>
@@ -98,7 +98,7 @@ function UserProject({projectid, userid, role}){
             </div>
             <Separator className='my-7'/>
             <div className='inline-block w-[100%]'>
-                <Button type='button' onClick={() => tasksMenu()} style={ {backgroundImage:`url('/images/OpenTasks.png')`}}  className="w-[45%] h-[750px]  bg-cover" >
+                <Button type='button' onClick={() => tasksMenu()} style={ {backgroundImage:`url('/Images/OpenTasks.png')`}}  className="w-[45%] h-[750px]  bg-cover" >
                     <div>
                         <div className="h-16 text-4xl font-semibold text-black">Tasks Menu</div>
                         <p className='text-black'>complete: {completed?.length}</p>
@@ -109,13 +109,13 @@ function UserProject({projectid, userid, role}){
                     </div>
                 </Button>
 
-                <Button type='button' onClick={() => notesMenu()} style={ {backgroundImage:`url('/images/Notes.png')`}} className="w-[20%] h-[275px] align-bottom bg-cover ml-5">
+                <Button type='button' onClick={() => notesMenu()} style={ {backgroundImage:`url('/Images/Notes.png')`}} className="w-[20%] h-[275px] align-bottom bg-cover ml-5">
                     <div>
                         <div className="text-2xl font-semibold text-black bg-[#ffe0a3]" >Notes Menu</div>
                     </div>
                 </Button>
 
-                <Button type='button' onClick={() => ManageMembers()} style={ {backgroundImage:`url('/images/Manage.png')`}} variant="outline" className="w-[21%] h-[275px] ml-5 align-bottom bg-cover">
+                <Button type='button' onClick={() => ManageMembers()} style={ {backgroundImage:`url('/Images/Manage.png')`}} variant="outline" className="w-[21%] h-[275px] ml-5 align-bottom bg-cover">
                     <div>
                         <div className="h-16 text-xl font-semibold">Manage Project</div>
                     </div>

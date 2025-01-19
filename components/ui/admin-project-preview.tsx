@@ -45,7 +45,7 @@ export function AdminProjectPreview({userid, project, triggerRefresh}) {
             <DialogTrigger asChild>
                 <Button>More info</Button>
             </DialogTrigger>
-            <DialogContent className="max-w-[80%] px-40 py-12 bg-cover" style={ {backgroundImage:`url('/images/DialogueTall.png')` }}>
+            <DialogContent className="max-w-[80%] px-40 py-12 bg-cover" style={ {backgroundImage:`url('/Images/DialogueTall.png')` }}>
                 <div>Project Info</div>
                 <div>Name: {project.name}</div>
                 <div>Description: {project.description}</div>

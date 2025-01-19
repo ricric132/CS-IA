@@ -22,7 +22,7 @@ export default async function Dashboard()
     return (
       <div>           
         <a>
-          <h1 className="text-8xl font-bold bg-cover pt-3 pb-2 pl-5" style={ {backgroundImage:`url('/images/Title.png')` }}>Admin Dashboard</h1>
+          <h1 className="text-8xl font-bold bg-cover pt-3 pb-2 pl-5" style={ {backgroundImage:`url('/Images/Title.png')` }}>Admin Dashboard</h1>
           <div className='float-right'>
             <SettingsButton/>
           </div>
@@ -39,7 +39,7 @@ export default async function Dashboard()
   else{
     return (
       <div>           
-        <div className="grid grid-cols-12 bg-cover pt-3 pb-2 pl-5" style={ {backgroundImage:`url('/images/Title.png')` }} >
+        <div className="grid grid-cols-12 bg-cover pt-3 pb-2 pl-5" style={ {backgroundImage:`url('/Images/Title.png')` }} >
           <h1 className="text-8xl font-bold col-span-11">User Dashboard</h1>
           <div className='float-right col-span-1'>
             <SettingsButton/>

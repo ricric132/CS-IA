@@ -92,7 +92,7 @@ function ProjectMenu({userid}){
     
     return(
       <div className='grid grid-cols-5 gap-2 h-[80vh]'>
-        <div className='col-span-3 grid grid-rows-10 gap-y-4 px-12 py-16 bg-cover' style={ {backgroundImage:`url('/images/BoardThiner.png')` }}>
+        <div className='col-span-3 grid grid-rows-10 gap-y-4 px-12 py-16 bg-cover' style={ {backgroundImage:`url('/Images/BoardThiner.png')` }}>
           
           <div className='row-span-1'>
             <h2 className="text-4xl font-semibold inline-block">Joined Projects</h2>
@@ -102,7 +102,7 @@ function ProjectMenu({userid}){
           <div className='w-full row-span-4'>
             <ScrollArea>
               {projects?.map((project) => (
-                <Button type='button' onClick={() => selectProject(project.id)} style={ {backgroundImage:`url('/images/Button.png')` }} className="w-1/5 h-[190px] mx-5 my-5 bg-contain text-black" key={project.id}>
+                <Button type='button' onClick={() => selectProject(project.id)} style={ {backgroundImage:`url('/Images/Button.png')` }} className="w-1/5 h-[190px] mx-5 my-5 bg-contain text-black" key={project.id}>
                   <div>
                       <div className="h-16 text-xl font-semibold">{project.name}</div>
                   </div>
@@ -115,7 +115,7 @@ function ProjectMenu({userid}){
           <div className='w-full row-span-4'>
             <ScrollArea>
               {pendingProjects?.map((pendingProject) => (
-                <Button type='button' onClick={() => console.log("click")} style={ {backgroundImage:`url('/images/Button.png')` }} className="w-1/5 h-[190px] mx-5 my-5 bg-contain text-black" key={pendingProject.id}>
+                <Button type='button' onClick={() => console.log("click")} style={ {backgroundImage:`url('/Images/Button.png')` }} className="w-1/5 h-[190px] mx-5 my-5 bg-contain text-black" key={pendingProject.id}>
                   <div>
                       <div className="h-16 text-xl font-semibold">{pendingProject.name}</div>
                   </div>

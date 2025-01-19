@@ -87,7 +87,7 @@ function EditPassword({userID}) {
             <DialogTrigger asChild>
                 <Button>Change Password</Button>
             </DialogTrigger>
-            <DialogContent className="max-w-[80%] px-24 py-10 bg-cover" style={ {backgroundImage:`url('/images/DialogueShort.png')` }}>
+            <DialogContent className="max-w-[80%] px-24 py-10 bg-cover" style={ {backgroundImage:`url('/Images/DialogueShort.png')` }}>
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                     <FormField

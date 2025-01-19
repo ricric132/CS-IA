@@ -23,7 +23,7 @@ export function CardWrapper({
   backButtonHref,
 }: CardWrapperProps) {
   return (
-    <Card className="mx-auto w-[930px] border-none  h-[850px] bg-cover grid grid-rows-6"  style={ {backgroundImage:`url('/images/LoginBox.png')` }}>
+    <Card className="mx-auto w-[930px] border-none  h-[850px] bg-cover grid grid-rows-6"  style={ {backgroundImage:`url('/Images/LoginBox.png')` }}>
       <CardHeader className='row-span-1'>
         <h1 className="text-center text-5xl font-semibold">{header}</h1>
       </CardHeader>

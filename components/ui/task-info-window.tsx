@@ -169,7 +169,7 @@ function TaskWindow({task}) {
         <DialogTrigger asChild>
             <Button variant="link" className="col-span-5 justify-start">{task.name}</Button>
         </DialogTrigger>
-        <DialogContent className="max-w-[90%] px-24 bg-cover" style={ {backgroundImage:`url('/images/DialogueTall.png')` }}>
+        <DialogContent className="max-w-[90%] px-24 bg-cover" style={ {backgroundImage:`url('/Images/DialogueTall.png')` }}>
           <h1 className="text-4xl font-bold">{task.name}</h1>
           <EditTaskButton task = {task}/>
           <DeleteTaskButton task = {task} closeParent={closeWindow}/>

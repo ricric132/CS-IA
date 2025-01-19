@@ -41,7 +41,7 @@ export default function Confirm() {
 
   return (
     
-      <Card className="mx-auto w-full max-w-xs md:max-w-7xl py-10 bg-cover" style={ {backgroundImage:`url('/images/DialogueShort.png')` }}>
+      <Card className="mx-auto w-full max-w-xs md:max-w-7xl py-10 bg-cover" style={ {backgroundImage:`url('/Images/DialogueShort.png')` }}>
         <CardHeader>
           <h1 className="text-center text-2xl font-semibold">
             Email Verification

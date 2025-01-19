@@ -69,7 +69,7 @@ function CreateNoteButton({projectid}) {
       <DialogTrigger asChild>
         <Button>Add Note</Button>
       </DialogTrigger>
-      <DialogContent className="md:max-w-[1000px] px-24 py-10" style={ {backgroundImage:`url('/images/DialogueShort.png')` }}>
+      <DialogContent className="md:max-w-[1000px] px-24 py-10" style={ {backgroundImage:`url('/Images/DialogueShort.png')` }}>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField

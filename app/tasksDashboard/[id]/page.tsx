@@ -123,7 +123,7 @@ export default function TaskDashboard(params:{
 
     return(
         <div className="bg-amber-950">
-            <div className='mb-5 grid grid-cols-10 bg-white bg-cover' style={ {backgroundImage:`url('/images/Title.png')`}}>
+            <div className='mb-5 grid grid-cols-10 bg-white bg-cover' style={ {backgroundImage:`url('/Images/Title.png')`}}>
                 <div className='col-span-1 ml-5'>
                     <BackButton />
                 </div>
@@ -138,7 +138,7 @@ export default function TaskDashboard(params:{
                         {tasks?.map((task) => (
                             <>
                                 {task.name.toLowerCase().startsWith(searchInput.toLowerCase()) &&
-                                    <div key={task.id} className="bg-cover p-3" style={ {backgroundImage:`url('/images/ThinPanel.png')`}}>
+                                    <div key={task.id} className="bg-cover p-3" style={ {backgroundImage:`url('/Images/ThinPanel.png')`}}>
                                         <TaskWindow task = {task}/>
                                     </div>
                                 }

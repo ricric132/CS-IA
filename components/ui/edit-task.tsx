@@ -92,7 +92,7 @@ function EditTaskButton({task}) {
       <DialogTrigger asChild>
         <Button>Edit Task</Button>
       </DialogTrigger>
-      <DialogContent className="md:max-w-[1000px] px-24 bg-cover" style={ {backgroundImage:`url('/images/DialogueTall.png')` }}>
+      <DialogContent className="md:max-w-[1000px] px-24 bg-cover" style={ {backgroundImage:`url('/Images/DialogueTall.png')` }}>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField

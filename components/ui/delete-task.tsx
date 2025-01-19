@@ -63,7 +63,7 @@ function DeleteTaskButton({task, closeParent}) {
       <DialogTrigger asChild>
         <Button>Delete Task</Button>
       </DialogTrigger>
-      <DialogContent className="w-[1000px] px-[100px] bg-cover" style={ {backgroundImage:`url('/images/DialogueShort.png')` }}>
+      <DialogContent className="w-[1000px] px-[100px] bg-cover" style={ {backgroundImage:`url('/Images/DialogueShort.png')` }}>
         <h1>are you sure you want to delete {task.name}?</h1>
         
         <Button onClick={() => ConfirmDeletion()}>confirm</Button>

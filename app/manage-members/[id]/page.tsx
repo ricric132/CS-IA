@@ -76,7 +76,7 @@ export default function ManageMembers(params:{
     
     return(
         <div className="bg-amber-950">
-            <div className='grid grid-cols-10 mb-5 bg-yellow-50 bg-cover' style={ {backgroundImage:`url('/images/Title.png')`}}>
+            <div className='grid grid-cols-10 mb-5 bg-yellow-50 bg-cover' style={ {backgroundImage:`url('/Images/Title.png')`}}>
                 <div className='col-span-1 ml-5'>
                     <BackButton />
                 </div>
@@ -95,14 +95,14 @@ export default function ManageMembers(params:{
                     </div>
                     <ScrollArea className="h-[700px] w-[100%] rounded-md border ">
                         {members?.map((member) => (
-                            <div key={member.id} className="bg-cover py-6 px-5 mb-3" style={ {backgroundImage:`url('/images/ThinPanel.png')`}}>
+                            <div key={member.id} className="bg-cover py-6 px-5 mb-3" style={ {backgroundImage:`url('/Images/ThinPanel.png')`}}>
                                 <MemberListItem member={member} triggerRefresh={triggerRefresh}/>
                             </div>
                         ))}
                         <div>Pending Members</div>
                         <Separator className="my-2"/>
                         {pendingMembers?.map((member) => (
-                            <div key={member.id} className="bg-cover py-6 px-5 mb-3" style={ {backgroundImage:`url('/images/ThinPanel.png')`}}>
+                            <div key={member.id} className="bg-cover py-6 px-5 mb-3" style={ {backgroundImage:`url('/Images/ThinPanel.png')`}}>
                                 <MemberListItem member={member} triggerRefresh={triggerRefresh}/>
                                 <Separator className="my-2"/>
                             </div>
@@ -116,7 +116,7 @@ export default function ManageMembers(params:{
                     <Card className="">
                         <ScrollArea>
                             {reports?.map((report) => (
-                                <div className="bg-cover py-6 px-5 mb-3" style={ {backgroundImage:`url('/images/ThinerPanel.png')`}}>
+                                <div className="bg-cover py-6 px-5 mb-3" style={ {backgroundImage:`url('/Images/ThinerPanel.png')`}}>
                                     <ReportScrollItem report={report} triggerRefresh={refreshReports}/>
                                 </div>
                             ))}

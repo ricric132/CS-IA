@@ -77,7 +77,7 @@ function CreateProjectButton({userid, triggerRefresh}) {
       <DialogTrigger asChild>
         <Button>Add Project</Button>
       </DialogTrigger>
-      <DialogContent className="md:max-w-[1000px] px-40 py-12 bg-cover" style={ {backgroundImage:`url('/images/DialogueTall.png')` }}>
+      <DialogContent className="md:max-w-[1000px] px-40 py-12 bg-cover" style={ {backgroundImage:`url('/Images/DialogueTall.png')` }}>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
             <FormField

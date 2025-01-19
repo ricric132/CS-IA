@@ -55,7 +55,7 @@ function FloatingProject({userid, project, Pause, Unpause, triggerRefresh}) {
             <DialogTrigger asChild>
                 <Button>More info</Button>
             </DialogTrigger>
-            <DialogContent className="max-w-[80%] pl-40 py-12 bg-cover" style={ {backgroundImage:`url('/images/DialogueShort.png')` }}>
+            <DialogContent className="max-w-[80%] pl-40 py-12 bg-cover" style={ {backgroundImage:`url('/Images/DialogueShort.png')` }}>
                 <div>Project Info</div>
                 <div>Name: {project.name}</div>
                 <div>Description: {project.description}</div>
