@@ -5,9 +5,9 @@ Link to the web hosted version: https://cs-ia-ten.vercel.app/login
 ## Login details:
 
 Admin account: 
-Username: admin
-Password: 12345678
+<br>Username: admin
+<br>Password: 12345678
 
 User account:
-Username: test
-Password: 12345678
+<br>Username: test
+<br>Password: 12345678
